@@ -1341,11 +1341,11 @@
     "inactive": false
   },
   {
-    "channelId": "1fb80ee632114e25a3e123b24078d8b3",
+    "channelId": "85c894b5787e4c79a04de2d4b08530c5",
     "name": "HTV",
-    "imageUri": "https://i.imgur.com/RbY3HKE.png",
-    "country": "BG",
-    "category": "religious",
+    "imageUri": "https://i.ibb.co/xgD0TBw/Screenshot-20230807-140309.jpg",
+    "country": "CM",
+    "category": "general",
     "CurrentStreamUrl": null,
     "inactive": false
   },
@@ -1899,12 +1899,12 @@
     "inactive": false
   },
   {
-    "channelId": "c5284d6619ee46229ffc7b68e836a31b",
+    "channelId": "7876729e0e15471ba0445c3d00513baa",
     "name": "M2",
-    "imageUri": "https://i.imgur.com/AfcBWCg.png",
-    "country": "UA",
-    "category": "music",
-    "CurrentStreamUrl": "http://stream.mcquack.net/330/index.m3u8",
+    "imageUri": "https://i.imgur.com/B0nYT0l.png",
+    "country": "HU",
+    "category": "entertainment",
+    "CurrentStreamUrl": "http://88.212.15.19/live/m2_hun/index.m3u8",
     "inactive": false
   },
   {
@@ -2214,12 +2214,12 @@
     "inactive": false
   },
   {
-    "channelId": "52ef61563f264ed19df39050c4474352",
+    "channelId": "30a4cf8ab6954889a89c989e1462e63b",
     "name": "NTV",
-    "imageUri": "https://i.imgur.com/qqLXdHz.png",
-    "country": "CI",
+    "imageUri": "https://i.imgur.com/2JbqbPY.png",
+    "country": "MN",
     "category": "general",
-    "CurrentStreamUrl": "https://strhlslb01.streamakaci.tv/str_ntv_ntv/str_ntv_ntv_multi/playlist.m3u8",
+    "CurrentStreamUrl": "https://cdn4.skygo.mn/live/disk1/NTVHD/DASH-FTA/NTVHD.mpd",
     "inactive": false
   },
   {
@@ -2439,12 +2439,12 @@
     "inactive": false
   },
   {
-    "channelId": "d231ca70b3b4478388aa4715717b2f27",
+    "channelId": "09c1a4ddce154852b65c514c427f6648",
     "name": "Payvand TV",
-    "imageUri": "https://i.imgur.com/A4gqEmG.png",
-    "country": "US",
-    "category": "news",
-    "CurrentStreamUrl": "https://tgn.bozztv.com/cus01/ucur1/Payvand/index.m3u8",
+    "imageUri": "https://i.imgur.com/o2Ww77N.png",
+    "country": "IR",
+    "category": "religious",
+    "CurrentStreamUrl": "https://uni6rtmp.tulix.tv/ucur1/Payvand/playlist.m3u8",
     "inactive": false
   },
   {
@@ -3132,11 +3132,11 @@
     "inactive": false
   },
   {
-    "channelId": "a2bc936a5e2d45fdbfeeaf61ad204d76",
+    "channelId": "dc43f61540d24def82af6bc833286663",
     "name": "TV 24",
-    "imageUri": "https://i.imgur.com/o5n40jq.png",
-    "country": "MK",
-    "category": "General",
+    "imageUri": "https://jiotvimages.cdn.jio.com/dare_images/images/TV24.png",
+    "country": "IN",
+    "category": "news",
     "CurrentStreamUrl": null,
     "inactive": false
   },
