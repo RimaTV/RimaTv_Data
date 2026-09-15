@@ -1,0 +1,94 @@
+name: Update Channels
+
+on:
+  workflow_dispatch:
+  schedule:
+    - cron: '0 */6 * * *'
+
+permissions:
+  contents: write
+
+jobs:
+  update-channels:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Fetch channels
+        env:
+          API_URL: https://iptv-za7i.onrender.com/api/v1/Channel/GetCuratedListWithStream
+          APPLICATION_ID: ${{ secrets.APPLICATION_ID }}
+          NONCE: ${{ secrets.NONCE }}
+          SIGNATURE: ${{ secrets.SIGNATURE }}
+        run: |
+          set -e
+
+          echo "Fetching channels..."
+
+          curl --fail-with-body \
+            --silent \
+            --show-error \
+            --location \
+            --request GET \
+            "$API_URL" \
+            --header "accept: text/plain" \
+            --header "ApplicationId: $APPLICATION_ID" \
+            --header "Nonce: $NONCE" \
+            --header "Signature: $SIGNATURE" \
+            --output response.json
+
+          echo "API response received."
+
+          if [ ! -s response.json ]; then
+            echo "API response is empty."
+            exit 1
+          fi
+
+      - name: Extract channels data
+        run: |
+          set -e
+
+          echo "Extracting data..."
+
+          jq '.data' response.json > channels.json
+
+          echo "Validating channels.json..."
+
+          jq empty channels.json
+
+          if [ "$(jq 'type' channels.json)" != '"array"' ]; then
+            echo "Invalid channels.json format."
+            exit 1
+          fi
+
+          echo "Channels count:"
+          jq 'length' channels.json
+
+      - name: Remove temporary response
+        run: |
+          rm -f response.json
+
+      - name: Check changes
+        id: changes
+        run: |
+          if git diff --quiet -- channels.json; then
+            echo "changed=false" >> "$GITHUB_OUTPUT"
+            echo "No changes detected."
+          else
+            echo "changed=true" >> "$GITHUB_OUTPUT"
+            echo "Changes detected."
+          fi
+
+      - name: Commit changes
+        if: steps.changes.outputs.changed == 'true'
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+
+          git add channels.json
+
+          git commit -m "Update channels data"
+
+          git push
