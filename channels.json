@@ -104,7 +104,7 @@
     "imageUri": "https://iatv.tmgrup.com.tr/site/v2/a2tv/i/a2tv-logo.png",
     "country": "TR",
     "category": "general",
-    "CurrentStreamUrl": "https://rnttwmjcin.turknet.ercdn.net/lcpmvefbyo/a2tv/a2tv.m3u8",
+    "CurrentStreamUrl": null,
     "inactive": false
   },
   {
