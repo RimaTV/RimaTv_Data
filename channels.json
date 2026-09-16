@@ -180,12 +180,12 @@
     "inactive": false
   },
   {
-    "channelId": "19f632f5dd4a4f9a845fc9247fe2c134",
+    "channelId": "0f436d5774ea4ddd836721e76431e23e",
     "name": "ATV",
-    "imageUri": "https://i.imgur.com/xrqFEou.png",
-    "country": "AM",
+    "imageUri": "https://i.imgur.com/eUzYZfg.png",
+    "country": "PE",
     "category": "general",
-    "CurrentStreamUrl": "http://stream.mcquack.net/36/index.m3u8",
+    "CurrentStreamUrl": "http://190.93.224.42/ATV/index.m3u8",
     "inactive": false
   },
   {
@@ -567,12 +567,12 @@
     "inactive": false
   },
   {
-    "channelId": "ed31767404044755b489cb99d3ff6544",
+    "channelId": "642aa5eb5d05445d8557438b423960ce",
     "name": "BRTV",
-    "imageUri": "https://upload.wikimedia.org/wikipedia/id/1/1f/Logo_BRTV.png",
-    "country": "ID",
+    "imageUri": "https://i.imgur.com/U3qlEAp.png",
+    "country": "TR",
     "category": "General",
-    "CurrentStreamUrl": "https://5bf7b725107e5.streamlock.net/brtv/brtv/playlist.m3u8",
+    "CurrentStreamUrl": "https://live.artidijitalmedya.com/artidijital_brtv/brtv/playlist.m3u8",
     "inactive": false
   },
   {
@@ -1341,11 +1341,11 @@
     "inactive": false
   },
   {
-    "channelId": "85c894b5787e4c79a04de2d4b08530c5",
+    "channelId": "ba9e37baac524904aa8979026e91c823",
     "name": "HTV",
-    "imageUri": "https://i.ibb.co/xgD0TBw/Screenshot-20230807-140309.jpg",
-    "country": "CM",
-    "category": "general",
+    "imageUri": "https://i.imgur.com/NlKFNHS.png",
+    "country": "US",
+    "category": "music",
     "CurrentStreamUrl": null,
     "inactive": false
   },
@@ -1872,12 +1872,12 @@
     "inactive": false
   },
   {
-    "channelId": "77bab336a1424c8388081c56606f0ef7",
+    "channelId": "0d8f025a4aa2400db598c7cac9744b78",
     "name": "Life TV",
-    "imageUri": "https://i.ibb.co/v1C0bdR/logo-1.png",
-    "country": "IN",
-    "category": "religious",
-    "CurrentStreamUrl": "https://lifetv.livebox.co.in/lifetvhls/lifetv.m3u8",
+    "imageUri": "https://i.imgur.com/lWeJxm0.png",
+    "country": "TR",
+    "category": "news",
+    "CurrentStreamUrl": "https://live.artidijitalmedya.com/artidijital_lifetv/lifetv/playlist.m3u8",
     "inactive": false
   },
   {
@@ -1899,12 +1899,12 @@
     "inactive": false
   },
   {
-    "channelId": "7876729e0e15471ba0445c3d00513baa",
+    "channelId": "c5284d6619ee46229ffc7b68e836a31b",
     "name": "M2",
-    "imageUri": "https://i.imgur.com/B0nYT0l.png",
-    "country": "HU",
-    "category": "entertainment",
-    "CurrentStreamUrl": "http://88.212.15.19/live/m2_hun/index.m3u8",
+    "imageUri": "https://i.imgur.com/AfcBWCg.png",
+    "country": "UA",
+    "category": "music",
+    "CurrentStreamUrl": "http://stream.mcquack.net/330/index.m3u8",
     "inactive": false
   },
   {
@@ -2133,12 +2133,12 @@
     "inactive": false
   },
   {
-    "channelId": "003025342fb14bdcb33732b866d84d90",
+    "channelId": "73fead1fd3cc4b6c819b80cc4b19a766",
     "name": "Mohabat TV",
-    "imageUri": "https://i.imgur.com/tucTC1O.jpg",
-    "country": "US",
+    "imageUri": "https://i.imgur.com/Ig0SPev.png",
+    "country": "IR",
     "category": "religious",
-    "CurrentStreamUrl": "https://mohabathls.wns.live/hls/stream.m3u8",
+    "CurrentStreamUrl": "http://204.11.235.251:1935/live_transcoder/ngrp:mohabat.stream_all/playlist.m3u8",
     "inactive": false
   },
   {
@@ -2214,12 +2214,12 @@
     "inactive": false
   },
   {
-    "channelId": "30a4cf8ab6954889a89c989e1462e63b",
+    "channelId": "52ef61563f264ed19df39050c4474352",
     "name": "NTV",
-    "imageUri": "https://i.imgur.com/2JbqbPY.png",
-    "country": "MN",
+    "imageUri": "https://i.imgur.com/qqLXdHz.png",
+    "country": "CI",
     "category": "general",
-    "CurrentStreamUrl": "https://cdn4.skygo.mn/live/disk1/NTVHD/DASH-FTA/NTVHD.mpd",
+    "CurrentStreamUrl": "https://strhlslb01.streamakaci.tv/str_ntv_ntv/str_ntv_ntv_multi/playlist.m3u8",
     "inactive": false
   },
   {
@@ -2439,12 +2439,12 @@
     "inactive": false
   },
   {
-    "channelId": "09c1a4ddce154852b65c514c427f6648",
+    "channelId": "d231ca70b3b4478388aa4715717b2f27",
     "name": "Payvand TV",
-    "imageUri": "https://i.imgur.com/o2Ww77N.png",
-    "country": "IR",
-    "category": "religious",
-    "CurrentStreamUrl": "https://uni6rtmp.tulix.tv/ucur1/Payvand/playlist.m3u8",
+    "imageUri": "https://i.imgur.com/A4gqEmG.png",
+    "country": "US",
+    "category": "news",
+    "CurrentStreamUrl": "https://tgn.bozztv.com/cus01/ucur1/Payvand/index.m3u8",
     "inactive": false
   },
   {
@@ -3132,11 +3132,11 @@
     "inactive": false
   },
   {
-    "channelId": "dc43f61540d24def82af6bc833286663",
+    "channelId": "3b60f1cacae74121b67df6046fdab3b9",
     "name": "TV 24",
-    "imageUri": "https://jiotvimages.cdn.jio.com/dare_images/images/TV24.png",
-    "country": "IN",
-    "category": "news",
+    "imageUri": "https://i.imgur.com/bhAGdqR.png",
+    "country": "MN",
+    "category": "General",
     "CurrentStreamUrl": null,
     "inactive": false
   },
