@@ -1,10 +1,15 @@
-name: Update and Deploy RimaTv API
+
+name: Update and Deploy RimaTv Data
 
 on:
   schedule:
     - cron: '15 * * * *'
 
   workflow_dispatch:
+
+  push:
+    branches:
+      - main
 
 permissions:
   contents: read
@@ -20,6 +25,7 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
+
       - name: Checkout
         uses: actions/checkout@v6
 
@@ -29,10 +35,11 @@ jobs:
           APPLICATION_ID: ${{ secrets.APPLICATION_ID }}
           NONCE: ${{ secrets.NONCE }}
           SIGNATURE: ${{ secrets.SIGNATURE }}
+
         run: |
           set -e
 
-          echo "Fetching channels..."
+          echo "Fetching channels from API..."
 
           curl \
             --fail-with-body \
@@ -57,44 +64,51 @@ jobs:
 
           jq empty response.json
 
-          if [ "$(jq -r 'type' response.json)" != "object" ]; then
-            echo "Invalid response type."
+          RESPONSE_TYPE=$(jq -r 'type' response.json)
+
+          if [ "$RESPONSE_TYPE" != "object" ]; then
+            echo "ERROR: API response is not an object."
             exit 1
           fi
 
-          if [ "$(jq -r '.data | type' response.json)" != "array" ]; then
-            echo "Invalid data format."
+          DATA_TYPE=$(jq -r '.data | type' response.json)
+
+          if [ "$DATA_TYPE" != "array" ]; then
+            echo "ERROR: API response does not contain a valid data array."
             exit 1
           fi
 
           CHANNEL_COUNT=$(jq '.data | length' response.json)
 
-          echo "Received channels: $CHANNEL_COUNT"
+          echo "Channels received: $CHANNEL_COUNT"
 
           if [ "$CHANNEL_COUNT" -lt 50 ]; then
-            echo "Too few channels received."
-            echo "Refusing to deploy."
+            echo "ERROR: Too few channels received."
+            echo "Deployment cancelled to prevent publishing bad data."
             exit 1
           fi
 
-      - name: Generate channels.json
+      - name: Generate website
         run: |
           set -e
 
+          rm -rf _site
           mkdir -p _site
+
+          echo "Generating channels.json..."
 
           jq '.data' response.json > _site/channels.json
 
-          echo "Generated channels.json"
+          echo "Copying index.html..."
 
-          jq empty _site/channels.json
-
-          echo "Final channel count:"
-          jq 'length' _site/channels.json
-
-      - name: Copy index.html
-        run: |
           cp index.html _site/index.html
+
+          echo "Checking generated files..."
+
+          ls -lah _site
+
+          echo "Channel count:"
+          jq 'length' _site/channels.json
 
       - name: Setup Pages
         uses: actions/configure-pages@v5
@@ -105,15 +119,16 @@ jobs:
           path: '_site'
 
   deploy:
-    environment:
-      name: github-pages
-      url: ${{ steps.deployment.outputs.page_url }}
-
     runs-on: ubuntu-latest
 
     needs: build
 
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+
     steps:
+
       - name: Deploy to GitHub Pages
         id: deployment
         uses: actions/deploy-pages@v4
