@@ -1,1 +1,940 @@
-<!DOCTYPE html> <html lang="en"> <head> <meta charset="UTF-8"> <meta name="viewport" content="width=device-width, initial-scale=1.0"> <title>RimaTv Data</title> <style> * { box-sizing: border-box; } body { margin: 0; min-height: 100vh; display: flex; align-items: center; justify-content: center; padding: 20px; font-family: Arial, sans-serif; background: #f5f5f5; color: #222; } .container { width: 100%; max-width: 650px; } .card { background: #ffffff; padding: 40px 30px; border-radius: 16px; text-align: center; box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08); } .icon { width: 64px; height: 64px; margin: 0 auto 20px; display: flex; align-items: center; justify-content: center; border-radius: 16px; background: #f0f0f0; font-size: 30px; } h1 { margin: 0 0 12px; font-size: 28px; } p { margin: 0; color: #666; line-height: 1.7; } .status { display: inline-flex; align-items: center; gap: 8px; margin-top: 25px; padding: 10px 16px; border-radius: 30px; background: #f0f0f0; font-size: 14px; } .dot { width: 9px; height: 9px; border-radius: 50%; background: #28a745; } .footer { margin-top: 25px; font-size: 12px; color: #999; } </style> </head> <body> <div class="container"> <div class="card"> <div class="icon"> 📺 </div> <h1>RimaTv Data</h1> <p> IPTV channel data service. </p> <div class="status"> <span class="dot"></span> Service is operational </div> <div class="footer"> Data is automatically updated periodically. </div> </div> </div> </body> </html>
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <meta
+        name="description"
+        content="RimaTv Data - IPTV channel data service"
+    >
+
+    <meta
+        name="robots"
+        content="index, follow"
+    >
+
+    <title>RimaTv Data</title>
+
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            margin: 0;
+            font-family:
+                -apple-system,
+                BlinkMacSystemFont,
+                "Segoe UI",
+                Roboto,
+                Arial,
+                sans-serif;
+
+            background: #f6f7f9;
+            color: #1f2937;
+            line-height: 1.6;
+        }
+
+        /* =========================
+           Header
+        ========================= */
+
+        header {
+            border-bottom: 1px solid #e5e7eb;
+            background: rgba(255, 255, 255, 0.95);
+        }
+
+        .header-container {
+            width: min(1100px, calc(100% - 40px));
+            margin: auto;
+
+            min-height: 72px;
+
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .brand {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .brand-icon {
+            width: 42px;
+            height: 42px;
+
+            display: flex;
+            align-items: center;
+            justify-content: center;
+
+            border-radius: 10px;
+
+            background: #111827;
+            color: #ffffff;
+
+            font-size: 20px;
+        }
+
+        .brand-name {
+            font-size: 18px;
+            font-weight: 700;
+            color: #111827;
+        }
+
+        .brand-subtitle {
+            font-size: 12px;
+            color: #6b7280;
+        }
+
+        .header-status {
+            display: flex;
+            align-items: center;
+            gap: 7px;
+
+            padding: 7px 12px;
+
+            border-radius: 20px;
+
+            background: #ecfdf3;
+            color: #15803d;
+
+            font-size: 13px;
+            font-weight: 600;
+        }
+
+        .status-dot {
+            width: 8px;
+            height: 8px;
+
+            border-radius: 50%;
+
+            background: #22c55e;
+        }
+
+        /* =========================
+           Main
+        ========================= */
+
+        main {
+            width: min(1100px, calc(100% - 40px));
+            margin: auto;
+        }
+
+        /* =========================
+           Hero
+        ========================= */
+
+        .hero {
+            padding: 80px 0 60px;
+            text-align: center;
+        }
+
+        .hero-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+
+            padding: 7px 14px;
+
+            border-radius: 30px;
+
+            background: #ffffff;
+            border: 1px solid #e5e7eb;
+
+            color: #4b5563;
+
+            font-size: 13px;
+            font-weight: 600;
+        }
+
+        .hero h1 {
+            margin: 22px 0 16px;
+
+            font-size: clamp(36px, 6vw, 58px);
+            line-height: 1.1;
+
+            letter-spacing: -1.5px;
+
+            color: #111827;
+        }
+
+        .hero h1 span {
+            color: #4f46e5;
+        }
+
+        .hero p {
+            max-width: 680px;
+
+            margin: auto;
+
+            color: #6b7280;
+
+            font-size: 17px;
+        }
+
+        /* =========================
+           Info Cards
+        ========================= */
+
+        .cards {
+            display: grid;
+
+            grid-template-columns:
+                repeat(3, minmax(0, 1fr));
+
+            gap: 20px;
+
+            margin-bottom: 70px;
+        }
+
+        .card {
+            padding: 28px;
+
+            background: #ffffff;
+
+            border: 1px solid #e5e7eb;
+            border-radius: 16px;
+
+            transition:
+                transform 0.2s ease,
+                box-shadow 0.2s ease;
+        }
+
+        .card:hover {
+            transform: translateY(-3px);
+
+            box-shadow:
+                0 12px 30px
+                rgba(0, 0, 0, 0.06);
+        }
+
+        .card-icon {
+            width: 46px;
+            height: 46px;
+
+            display: flex;
+            align-items: center;
+            justify-content: center;
+
+            margin-bottom: 18px;
+
+            border-radius: 12px;
+
+            background: #f3f4f6;
+
+            font-size: 21px;
+        }
+
+        .card h3 {
+            margin: 0 0 8px;
+
+            font-size: 18px;
+
+            color: #111827;
+        }
+
+        .card p {
+            margin: 0;
+
+            color: #6b7280;
+
+            font-size: 14px;
+        }
+
+        /* =========================
+           Architecture
+        ========================= */
+
+        .section {
+            margin-bottom: 70px;
+        }
+
+        .section-header {
+            margin-bottom: 25px;
+        }
+
+        .section-header h2 {
+            margin: 0 0 8px;
+
+            font-size: 28px;
+
+            color: #111827;
+        }
+
+        .section-header p {
+            margin: 0;
+
+            color: #6b7280;
+
+            font-size: 15px;
+        }
+
+        .architecture {
+            display: grid;
+
+            grid-template-columns:
+                repeat(4, minmax(0, 1fr));
+
+            gap: 12px;
+        }
+
+        .architecture-item {
+            position: relative;
+
+            padding: 24px 18px;
+
+            text-align: center;
+
+            background: #ffffff;
+
+            border: 1px solid #e5e7eb;
+            border-radius: 14px;
+        }
+
+        .architecture-number {
+            width: 30px;
+            height: 30px;
+
+            display: flex;
+            align-items: center;
+            justify-content: center;
+
+            margin: 0 auto 12px;
+
+            border-radius: 50%;
+
+            background: #111827;
+            color: #ffffff;
+
+            font-size: 12px;
+            font-weight: 700;
+        }
+
+        .architecture-item strong {
+            display: block;
+
+            margin-bottom: 5px;
+
+            color: #111827;
+
+            font-size: 14px;
+        }
+
+        .architecture-item span {
+            color: #6b7280;
+
+            font-size: 12px;
+        }
+
+        /* =========================
+           Features
+        ========================= */
+
+        .features {
+            display: grid;
+
+            grid-template-columns:
+                repeat(2, minmax(0, 1fr));
+
+            gap: 16px;
+        }
+
+        .feature {
+            display: flex;
+            gap: 15px;
+
+            padding: 22px;
+
+            background: #ffffff;
+
+            border: 1px solid #e5e7eb;
+            border-radius: 14px;
+        }
+
+        .feature-icon {
+            flex-shrink: 0;
+
+            width: 40px;
+            height: 40px;
+
+            display: flex;
+            align-items: center;
+            justify-content: center;
+
+            border-radius: 10px;
+
+            background: #f3f4f6;
+
+            font-size: 18px;
+        }
+
+        .feature h3 {
+            margin: 0 0 5px;
+
+            font-size: 15px;
+
+            color: #111827;
+        }
+
+        .feature p {
+            margin: 0;
+
+            font-size: 13px;
+
+            color: #6b7280;
+        }
+
+        /* =========================
+           Status Section
+        ========================= */
+
+        .status-card {
+            padding: 30px;
+
+            background: #111827;
+
+            color: #ffffff;
+
+            border-radius: 18px;
+
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+
+            gap: 30px;
+        }
+
+        .status-content h2 {
+            margin: 0 0 8px;
+
+            font-size: 22px;
+        }
+
+        .status-content p {
+            margin: 0;
+
+            color: #9ca3af;
+
+            font-size: 14px;
+        }
+
+        .status-active {
+            display: flex;
+            align-items: center;
+            gap: 9px;
+
+            white-space: nowrap;
+
+            padding: 10px 16px;
+
+            border-radius: 25px;
+
+            background: rgba(34, 197, 94, 0.12);
+
+            color: #86efac;
+
+            font-size: 13px;
+            font-weight: 600;
+        }
+
+        /* =========================
+           Footer
+        ========================= */
+
+        footer {
+            margin-top: 80px;
+
+            border-top: 1px solid #e5e7eb;
+
+            background: #ffffff;
+        }
+
+        .footer-container {
+            width: min(1100px, calc(100% - 40px));
+            margin: auto;
+
+            min-height: 80px;
+
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+
+            gap: 20px;
+
+            color: #9ca3af;
+
+            font-size: 12px;
+        }
+
+        .footer-brand {
+            font-weight: 600;
+
+            color: #6b7280;
+        }
+
+        /* =========================
+           Responsive
+        ========================= */
+
+        @media (max-width: 850px) {
+
+            .cards {
+                grid-template-columns: 1fr;
+            }
+
+            .architecture {
+                grid-template-columns:
+                    repeat(2, minmax(0, 1fr));
+            }
+
+            .features {
+                grid-template-columns: 1fr;
+            }
+
+            .status-card {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+
+            .status-active {
+                width: 100%;
+                justify-content: center;
+            }
+        }
+
+        @media (max-width: 550px) {
+
+            .header-container {
+                width: min(100% - 24px, 1100px);
+            }
+
+            main {
+                width: min(100% - 24px, 1100px);
+            }
+
+            .header-status {
+                display: none;
+            }
+
+            .hero {
+                padding: 55px 0 45px;
+            }
+
+            .hero p {
+                font-size: 15px;
+            }
+
+            .architecture {
+                grid-template-columns: 1fr;
+            }
+
+            .card {
+                padding: 22px;
+            }
+
+            .footer-container {
+                width: min(100% - 24px, 1100px);
+
+                flex-direction: column;
+
+                justify-content: center;
+
+                padding: 20px 0;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+<header>
+
+    <div class="header-container">
+
+        <div class="brand">
+
+            <div class="brand-icon">
+                📺
+            </div>
+
+            <div>
+                <div class="brand-name">
+                    RimaTv Data
+                </div>
+
+                <div class="brand-subtitle">
+                    IPTV Data Service
+                </div>
+            </div>
+
+        </div>
+
+        <div class="header-status">
+            <span class="status-dot"></span>
+            Operational
+        </div>
+
+    </div>
+
+</header>
+
+
+<main>
+
+    <!-- Hero -->
+
+    <section class="hero">
+
+        <div class="hero-badge">
+            📡 IPTV Data Infrastructure
+        </div>
+
+        <h1>
+            RimaTv <span>Data</span>
+        </h1>
+
+        <p>
+            A lightweight data service designed to provide
+            structured and continuously updated IPTV channel
+            information for RimaTv applications and services.
+        </p>
+
+    </section>
+
+
+    <!-- Main Information -->
+
+    <section class="cards">
+
+        <div class="card">
+
+            <div class="card-icon">
+                📺
+            </div>
+
+            <h3>
+                IPTV Channels
+            </h3>
+
+            <p>
+                Structured channel information including
+                channel names, countries, categories,
+                logos and available stream information.
+            </p>
+
+        </div>
+
+
+        <div class="card">
+
+            <div class="card-icon">
+                🔄
+            </div>
+
+            <h3>
+                Automatic Updates
+            </h3>
+
+            <p>
+                Channel information is automatically
+                synchronized with the main data source
+                on a regular schedule.
+            </p>
+
+        </div>
+
+
+        <div class="card">
+
+            <div class="card-icon">
+                ⚡
+            </div>
+
+            <h3>
+                Fast Delivery
+            </h3>
+
+            <p>
+                Static data delivery provides fast access
+                and reduces unnecessary load on the
+                primary application server.
+            </p>
+
+        </div>
+
+    </section>
+
+
+    <!-- Architecture -->
+
+    <section class="section">
+
+        <div class="section-header">
+
+            <h2>
+                How It Works
+            </h2>
+
+            <p>
+                RimaTv Data uses an automated data pipeline
+                to keep channel information synchronized.
+            </p>
+
+        </div>
+
+
+        <div class="architecture">
+
+            <div class="architecture-item">
+
+                <div class="architecture-number">
+                    1
+                </div>
+
+                <strong>
+                    Data Source
+                </strong>
+
+                <span>
+                    Primary IPTV service
+                </span>
+
+            </div>
+
+
+            <div class="architecture-item">
+
+                <div class="architecture-number">
+                    2
+                </div>
+
+                <strong>
+                    Synchronization
+                </strong>
+
+                <span>
+                    Automated data retrieval
+                </span>
+
+            </div>
+
+
+            <div class="architecture-item">
+
+                <div class="architecture-number">
+                    3
+                </div>
+
+                <strong>
+                    Processing
+                </strong>
+
+                <span>
+                    Validation and formatting
+                </span>
+
+            </div>
+
+
+            <div class="architecture-item">
+
+                <div class="architecture-number">
+                    4
+                </div>
+
+                <strong>
+                    Delivery
+                </strong>
+
+                <span>
+                    Static data distribution
+                </span>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- Features -->
+
+    <section class="section">
+
+        <div class="section-header">
+
+            <h2>
+                Service Features
+            </h2>
+
+            <p>
+                Built to provide reliable and structured
+                channel data for IPTV applications.
+            </p>
+
+        </div>
+
+
+        <div class="features">
+
+            <div class="feature">
+
+                <div class="feature-icon">
+                    🗂️
+                </div>
+
+                <div>
+
+                    <h3>
+                        Structured Data
+                    </h3>
+
+                    <p>
+                        Channel information is delivered
+                        in a consistent machine-readable format.
+                    </p>
+
+                </div>
+
+            </div>
+
+
+            <div class="feature">
+
+                <div class="feature-icon">
+                    🛡️
+                </div>
+
+                <div>
+
+                    <h3>
+                        Validated Updates
+                    </h3>
+
+                    <p>
+                        Incoming data is validated before
+                        being published.
+                    </p>
+
+                </div>
+
+            </div>
+
+
+            <div class="feature">
+
+                <div class="feature-icon">
+                    🌐
+                </div>
+
+                <div>
+
+                    <h3>
+                        Global Access
+                    </h3>
+
+                    <p>
+                        The service is designed for reliable
+                        access from different regions.
+                    </p>
+
+                </div>
+
+            </div>
+
+
+            <div class="feature">
+
+                <div class="feature-icon">
+                    🔧
+                </div>
+
+                <div>
+
+                    <h3>
+                        Automated Infrastructure
+                    </h3>
+
+                    <p>
+                        Data generation and deployment are
+                        handled automatically without manual updates.
+                    </p>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- Service Status -->
+
+    <section class="section">
+
+        <div class="status-card">
+
+            <div class="status-content">
+
+                <h2>
+                    Service Status
+                </h2>
+
+                <p>
+                    RimaTv Data infrastructure is running
+                    and ready to provide IPTV data.
+                </p>
+
+            </div>
+
+
+            <div class="status-active">
+
+                <span class="status-dot"></span>
+
+                System Operational
+
+            </div>
+
+        </div>
+
+    </section>
+
+</main>
+
+
+<footer>
+
+    <div class="footer-container">
+
+        <div class="footer-brand">
+            RimaTv Data
+        </div>
+
+        <div>
+            Automated IPTV Data Service
+        </div>
+
+        <div>
+            © 2026
+        </div>
+
+    </div>
+
+</footer>
+
+</body>
+</html>
