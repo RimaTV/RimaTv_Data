@@ -2133,12 +2133,12 @@
     "inactive": false
   },
   {
-    "channelId": "73fead1fd3cc4b6c819b80cc4b19a766",
+    "channelId": "003025342fb14bdcb33732b866d84d90",
     "name": "Mohabat TV",
-    "imageUri": "https://i.imgur.com/Ig0SPev.png",
-    "country": "IR",
+    "imageUri": "https://i.imgur.com/tucTC1O.jpg",
+    "country": "US",
     "category": "religious",
-    "CurrentStreamUrl": "http://204.11.235.251:1935/live_transcoder/ngrp:mohabat.stream_all/playlist.m3u8",
+    "CurrentStreamUrl": "https://mohabathls.wns.live/hls/stream.m3u8",
     "inactive": false
   },
   {
@@ -2439,12 +2439,12 @@
     "inactive": false
   },
   {
-    "channelId": "d231ca70b3b4478388aa4715717b2f27",
+    "channelId": "09c1a4ddce154852b65c514c427f6648",
     "name": "Payvand TV",
-    "imageUri": "https://i.imgur.com/A4gqEmG.png",
-    "country": "US",
-    "category": "news",
-    "CurrentStreamUrl": "https://tgn.bozztv.com/cus01/ucur1/Payvand/index.m3u8",
+    "imageUri": "https://i.imgur.com/o2Ww77N.png",
+    "country": "IR",
+    "category": "religious",
+    "CurrentStreamUrl": "https://uni6rtmp.tulix.tv/ucur1/Payvand/playlist.m3u8",
     "inactive": false
   },
   {
@@ -3132,10 +3132,10 @@
     "inactive": false
   },
   {
-    "channelId": "3b60f1cacae74121b67df6046fdab3b9",
+    "channelId": "4b0b070969d5445e9da39c58254b4a18",
     "name": "TV 24",
-    "imageUri": "https://i.imgur.com/bhAGdqR.png",
-    "country": "MN",
+    "imageUri": "https://i.imgur.com/TOgivuE.png",
+    "country": "CH",
     "category": "General",
     "CurrentStreamUrl": null,
     "inactive": false
